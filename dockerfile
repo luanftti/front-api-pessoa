@@ -1,5 +1,5 @@
 # Etapa 1: Construção da aplicação Angular
-FROM node:18-alpine AS build
+FROM node:18.13.0  AS build
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
