@@ -1,15 +1,14 @@
 # Usa a imagem do Node.js para build
-FROM node:18 AS build
+FROM node:latest AS build
 
 WORKDIR /app
 
 # Instala o Git
 RUN apt-get update && apt-get install -y git
 
-RUN npm install -g npm@9
-
 # Clona o repositório (substitua pelo link correto)
 RUN git clone https://github.com/luanftti/front-api-pessoa.git
+
 
 # Instala as dependências e compila a aplicação
 WORKDIR /app/front-api-pessoa
