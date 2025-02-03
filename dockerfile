@@ -22,9 +22,6 @@ FROM nginx:latest
 # Copia os arquivos do build Angular para o diretório de publicação do Nginx
 COPY --from=build /app/front-api-pessoa/dist/front-pessoa /usr/share/nginx/html
 
-# Copia a configuração personalizada do Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
 # Expõe a porta correta (Nginx usa a 80)
 EXPOSE 80 4201
 
