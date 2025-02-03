@@ -2,6 +2,7 @@
 FROM node:18.13.0  AS build
 
 # Define o diretório de trabalho dentro do container
+RUN mkdir /app
 WORKDIR /app
 
 # Instala dependências do sistema necessárias para o Git
