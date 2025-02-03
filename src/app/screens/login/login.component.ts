@@ -39,10 +39,10 @@ export class LoginComponent {
 
       this.service.login(this.userName, this.password).subscribe({
         next: (data) => {
-          console.log(data);
-          if(this.service.isLoggedIn() && data.login !== undefined && data.login !== ''){
+          if(data !== undefined && data.login !== undefined && data.login !== ''){
+            this.service.updateSession();
             this.service.setUser(data);
-            this.router.navigate(['pessoa'])
+            this.router.navigate(['/pessoa'])
           }
         },
         error: (err) => {

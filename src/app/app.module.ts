@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './screens/login/login.component';
 import { PessoaComponent } from './screens/pessoa/pessoa.component';
 import {ToolbarModule} from 'primeng/toolbar';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -43,11 +44,13 @@ const routes: Routes = [
     TableModule,
     DialogModule,
     DropdownModule,
-    ToolbarModule
+    ToolbarModule,
+    HttpClientModule
   ],
   providers: [
     MessageService,
     provideAnimationsAsync(),
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
     
   ],
   bootstrap: [AppComponent]

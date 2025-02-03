@@ -38,37 +38,36 @@
       </div>
   </div>
 </div>
-<p-dialog header="Cadastro de Pessoa" [(visible)]="displayDialog" [modal]="true" [style]="{width: '30vw'}">
-  <div class="p-fluid">
+
+<p-dialog header="Cadastro de Pessoa" [(visible)]="displayDialog" [modal]="true" [style]="{width: '40vw', borderRadius: '12px', background: '#E3F2FD', padding: '2rem'}">
+  <div class="p-fluid dialog-content">
     <div class="p-field">
       <label for="name">Nome</label>
-      <input id="name" type="text" pInputText [(ngModel)]="pessoa.nome" />
+      <input id="name" type="text" pInputText [(ngModel)]="pessoa.nome" class="p-inputtext p-component" />
     </div>
     <div class="p-field">
       <label for="email">Email</label>
-      <input id="email" type="email" pInputText [(ngModel)]="pessoa.email" />
+      <input id="email" type="email" pInputText [(ngModel)]="pessoa.email" class="p-inputtext p-component" />
     </div>
     <div class="p-field">
       <label for="age">Data Nascimento</label>
-      <input id="age" type="date" pInputText [(ngModel)]="pessoa.dataNascimento" />
+      <input id="age" type="date" pInputText [(ngModel)]="pessoa.dataNascimento" class="p-inputtext p-component" />
     </div>
     <div class="p-field">
       <label for="cpf">CPF</label>
-      <input id="cpf" type="cpf" pInputText [(ngModel)]="pessoa.cpf" />
+      <input id="cpf" type="text" pInputText [(ngModel)]="pessoa.cpf" class="p-inputtext p-component" />
     </div>
     <div class="p-field">
        <label for="cidade">Naturalidade</label>
-        <p-dropdown id="cidade" [options]="cidades" [(ngModel)]="pessoa.cidadeNascimento" placeholder="Selecione uma cidade">
-        </p-dropdown>
+        <p-dropdown id="cidade" [options]="cidades" [(ngModel)]="pessoa.cidadeNascimento" placeholder="Selecione uma cidade" class="p-dropdown w-full dropdown-custom"></p-dropdown>
     </div>
     <div class="p-field">
        <label for="pais">Nacionalidade</label>
-        <p-dropdown id="pais" [options]="paises" [(ngModel)]="pessoa.paisNascimento" placeholder="Selecione um país">
-        </p-dropdown>
+        <p-dropdown id="pais" [options]="paises" [(ngModel)]="pessoa.paisNascimento" placeholder="Selecione um país" class="p-dropdown w-full dropdown-custom"></p-dropdown>
     </div>
   </div>
-  <p-footer>
-    <button pButton label="Salvar" icon="pi pi-check" class="p-button-primary" (click)="salvarPessoa()"></button>
-    <button pButton label="Cancelar" icon="pi pi-times" class="p-button-secondary" (click)="displayDialog=false"></button>
+  <p-footer class="flex justify-content-end gap-4">
+    <button pButton label="Salvar" icon="pi pi-check" class="p-button-primary p-button-lg"></button>
+    <button pButton label="Cancelar" icon="pi pi-times" class="p-button-secondary p-button-lg" (click)="displayDialog=false"></button>
   </p-footer>
 </p-dialog>

@@ -12,27 +12,25 @@ export class AuthService {
 
     private authHeader: string | null = null;
     private urlLogin: string = envrioment.URL_API + '/login';
+    private tempo_expiracao = 30 * 60 * 1000;
     private user: Usuario | null = null;
+    
 
     constructor(private http: HttpClient, router: Router) {
 
     }
 
     login(userName: string, password: string) : Observable<any> {
-        this.authHeader = 'Basic ' + btoa(`${userName}:${password}`);
-        
-        if(this.user === null)
-            this.user = new Usuario();
+        const credential = btoa(`${userName}:${password}`);
+        this.authHeader = 'Basic ' + credential;
+        sessionStorage.setItem('auth', credential);              
 
-        this.user.login = userName;
-        this.user.senha = password;
-        const headers = this.getAuthHeaders();      
-        return this.http.get(this.urlLogin, {headers});
+        return this.http.get(this.urlLogin, {});
     }
 
-    logout() {
-        this.authHeader = null;
-        this.user = null;
+    logout() {        
+        sessionStorage.clear();
+
     }
 
     getAuthHeaders() {
@@ -46,17 +44,28 @@ export class AuthService {
       
     }
     isLoggedIn(){
-        return this.authHeader !== null;
+        const timeExpiration = sessionStorage.getItem('expires');
+        if(timeExpiration !== null){
+            return Date.now() < Number(timeExpiration);
+        }
+        return false;
     }
 
-    getUser() {
-        return this.user;
+    updateSession() {
+        if (sessionStorage.getItem('auth')) {
+            sessionStorage.setItem('expires', (Date.now() + this.tempo_expiracao).toString());
+        }        
     }
 
-    setUser(data: any) {
-        if(this.user !== null) {
-            this.user.id = data.id;
-            this.user.nome = data.nome;
-        } 
+    setUser(user: Usuario) {
+        this.user = user;
     }
+
+    getUser(): Usuario {
+        if(this.user !== null)
+            return this.user;
+        else 
+            return new Usuario();
+    }
+   
 }

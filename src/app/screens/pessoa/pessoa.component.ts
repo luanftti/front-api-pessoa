@@ -24,6 +24,7 @@ export class PessoaComponent implements OnInit{
   cidades: Cidade[] = []
   selectedCidade?: Cidade;
   paises: Pais[] = [];
+  loading: boolean = false;
   
 
   constructor (
@@ -48,7 +49,7 @@ export class PessoaComponent implements OnInit{
   }
      
   novaPessoa() {
-
+    this.displayDialog = true;
   }
 
   loadPessoas(){
