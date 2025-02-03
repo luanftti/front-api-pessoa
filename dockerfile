@@ -21,5 +21,5 @@ FROM nginx:latest
 # Copia os arquivos do build para o Nginx
 COPY --from=build /app/front-api-pessoa/dist/front-pessoa /usr/share/nginx/html
 
-# Expõe a porta 80
-EXPOSE 4200
+# Expõe a porta
+EXPOSE 4201

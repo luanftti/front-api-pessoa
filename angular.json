@@ -16,7 +16,6 @@
             "outputPath": "dist/front-pessoa",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "port": 4200,
             "polyfills": [
               "zone.js"
             ],
@@ -58,7 +57,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "front-pessoa:build:production"
+              "buildTarget": "front-pessoa:build:production",
+              "port": 4201
             },
             "development": {
               "buildTarget": "front-pessoa:build:development"
