@@ -5,7 +5,7 @@ FROM node:18.13.0  AS build
 WORKDIR /app
 
 # Instala dependências do sistema necessárias para o Git
-RUN apk add --no-cache git
+RUN apt-get install git
 
 # Clona o repositório (substitua pelo link correto)
 RUN git clone https://github.com/luanftti/front-api-pessoa.git
