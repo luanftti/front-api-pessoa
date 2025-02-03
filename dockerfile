@@ -6,6 +6,8 @@ WORKDIR /app
 # Instala o Git
 RUN apt-get update && apt-get install -y git
 
+RUN npm install -g npm@9
+
 # Clona o repositório (substitua pelo link correto)
 RUN git clone https://github.com/luanftti/front-api-pessoa.git
 
