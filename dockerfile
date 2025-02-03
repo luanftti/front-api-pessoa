@@ -7,9 +7,10 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git
 
 # Clona o repositório (substitua pelo link correto)
-RUN git clone https://github.com/luanftti/front-api-pessoa.git.
+RUN git clone https://github.com/luanftti/front-api-pessoa.git
 
 # Instala as dependências e compila a aplicação
+WORKDIR /app/front-api-pessoa
 RUN npm install && npm run build --prod
 
 # Usa o servidor Nginx para servir a aplicação
