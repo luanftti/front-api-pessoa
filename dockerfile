@@ -19,7 +19,7 @@ RUN npm install && npm run build --prod --no-cache --verbose
 FROM nginx:latest
 
 # Copia os arquivos do build para o Nginx
-COPY --from=build /app/dist/fron-api-pessoa /usr/share/nginx/html
+COPY --from=build /app/dist/front-pessoa /usr/share/nginx/html
 
 # Expõe a porta 80
 EXPOSE 4200
