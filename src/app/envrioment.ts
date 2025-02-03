@@ -1,3 +1,3 @@
 export const envrioment = {
-    URL_API: 'http://localhost:8082'
+    URL_API: 'http://localhost:8080'
 }
