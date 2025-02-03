@@ -16,6 +16,7 @@
             "outputPath": "dist/front-pessoa",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "port": 4200,
             "polyfills": [
               "zone.js"
             ],
