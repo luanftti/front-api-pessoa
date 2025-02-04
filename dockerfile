@@ -15,7 +15,7 @@ RUN git clone https://github.com/luanftti/front-api-pessoa.git
 WORKDIR /app/front-api-pessoa
 
 # Instala as dependências e faz o build
-RUN npm install && npm run build --verbose
+RUN npm install && npm run build
 
 
 # Etapa 2: Servindo a aplicação com Nginx
