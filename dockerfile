@@ -13,6 +13,7 @@ RUN git clone https://github.com/luanftti/front-api-pessoa.git
 
 # Define o diretório do projeto Angular
 WORKDIR /app/front-api-pessoa
+RUN git pull;
 
 # Instala as dependências e faz o build
 RUN npm install && npm run build
