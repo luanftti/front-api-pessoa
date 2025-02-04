@@ -25,7 +25,7 @@ export class AuthService {
         this.authHeader = 'Basic ' + credential;
         sessionStorage.setItem('auth', credential);              
 
-        return this.http.get(this.urlLogin, {});
+        return this.http.post(this.urlLogin, {});
     }
 
     logout() {        
