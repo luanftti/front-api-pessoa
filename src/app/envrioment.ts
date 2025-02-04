@@ -1,3 +1,3 @@
 export const envrioment = {
-    URL_API: 'http://api-pessoa-app:8080/api'
+    URL_API: 'http://localhost:8080'
 }
